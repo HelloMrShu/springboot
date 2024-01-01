@@ -20,4 +20,8 @@ public class MessageService {
         qw.select("*");
         return this.msgMapper.selectList(qw);
     }
+
+    public Message getById(long id) {
+        return this.msgMapper.selectById(id);
+    }
 }
