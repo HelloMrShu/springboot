@@ -1,2 +1,2 @@
-# springboot
-sb framework test
+# springboot framework
+a micro project contains the key components and points to develop java web.
