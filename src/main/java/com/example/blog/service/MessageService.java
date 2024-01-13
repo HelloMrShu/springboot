@@ -21,6 +21,7 @@ public class MessageService {
         Page<Message> page = new Page<>(pageNum, pageSize);
 
         QueryWrapper<Message> qw = new QueryWrapper<>();
+        qw.orderByDesc("id");
         return this.msgMapper.selectPage(page, qw);
     }
 
