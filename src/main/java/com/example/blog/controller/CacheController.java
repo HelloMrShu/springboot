@@ -15,12 +15,26 @@ public class CacheController {
         this.redisService = redisService;
     }
 
-    @GetMapping("cache/{id}")
-    public Boolean SetCache(@PathVariable("id") String id) {
-        Message msg = new Message((long)1, "url", "b", "c");
+    @GetMapping("cache/set/{id}")
+    public Boolean SetCache(@PathVariable("id") Long id) {
+        Message msg = new Message();
+        msg.setId(id);
+        msg.setForm("url");
+        msg.setContent("this is content");
+        msg.setKeywords("keywords");
+
         try {
-            this.redisService.set(id, msg);
+            this.redisService.set(id.toString(), msg);
             return true;
+        } catch (NullPointerException e) {
+            return false;
+        }
+    }
+
+    @GetMapping("cache/{id}")
+    public Object GetCache(@PathVariable("id") Long id) {
+        try {
+            return this.redisService.get(id.toString());
         } catch (NullPointerException e) {
             return false;
         }

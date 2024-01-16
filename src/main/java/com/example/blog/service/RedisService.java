@@ -24,4 +24,13 @@ public class RedisService {
             return false;
         }
     }
+
+    public Object get(String key) {
+        try {
+            return redisTemplate.opsForValue().get(key);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
 }
