@@ -12,6 +12,10 @@ spring:
       host: 127.0.0.1
       database: 0
       timeout: 3000ms
+  mail:
+    username: turbo10240@163.com
+    password: 
+    host: smtp.163.com
 mybatis-plus:
   mapper-locations: classpath:mapper/*.xml
 logging:
